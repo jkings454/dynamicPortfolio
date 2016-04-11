@@ -54,4 +54,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   root 'static_pages#index'
+  get 'classes' => 'project_groups#index'
+  resources :project_groups
+  resources :projects
 end

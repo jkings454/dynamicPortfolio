@@ -1,0 +1,9 @@
+<div class = "container">
+  <% @project_groups.each do |p| %>
+  <div class ="jumbotron <%= p.image_url.gsub(".jpg", "")%> "> 
+    <h1><%= p.title %></h1>
+    <p><%= p.description %> </p>
+    <%= link_to "Show More", project_group_path(p), class: "btn btn-primary btn-small"%>
+  </div>
+  <%end%>
+</div>

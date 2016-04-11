@@ -1,0 +1,4 @@
+class AddForeignIdToProducts < ActiveRecord::Migration
+  def change
+  end
+end
