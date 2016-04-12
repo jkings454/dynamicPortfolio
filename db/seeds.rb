@@ -7,6 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 users = User.create([{
      username: 'admin', 
-     password: 'jO123lly'
+     password: 'jO123lly',
      role: 'admin'
   }])
