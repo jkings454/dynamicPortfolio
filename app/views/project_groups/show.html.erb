@@ -28,11 +28,13 @@
      <%end%>
     </tbody>
   </table>
-  <% if current_user && current_user.admin? %>
 
-  <%end%>
+
+
   <%else%>
   <p class="text-danger">There doesn't seem to be anything here.</p>
   <%end%>
+  <% if current_user && current_user.admin? %>
   <%= link_to "+add", new_project_group_project_path(@project_group) %>
+    <%end%>
 </div>
