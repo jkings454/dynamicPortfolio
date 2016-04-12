@@ -38,10 +38,23 @@ footer {
 .marketing{
     background: url('marketing.jpg') no-repeat center center;
     color: #f6f6f6;
-    text-shadow: 2px 2px 2px #000
+    text-shadow: 2px 2px 2px #000;
+    
 }
 .abacus {
     background: url('abacus.jpg') no-repeat center center;
     color: #f6f6f6;
-    text-shadow: 2px 2px  2px#363636
+    text-shadow: 2px 2px  2px#363636;
+}
+
+.road {
+    background: url('road.jpg') no-repeat center center;
+    color: #f6f6f6;
+    text-shadow: 2px 2px  2px#363636;
+}
+.readbetter{
+    color: #24d7e8
+}
+.readbetter:hover {
+    color: #d6f4f6
 }

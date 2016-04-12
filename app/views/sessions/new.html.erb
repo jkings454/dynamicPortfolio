@@ -1,0 +1,20 @@
+<div class="container">
+  <div class ="page-header">
+    <h1>Content Management Login</h1>
+  </div>
+  <div class ="col-md-6 col-md-offset-3">
+  <p>This is the login page for the content manager(s). If you have any problems, email <a href ="mailto:josh.nichols.lives@gmail.com">josh.nichols.lives@gmail.com</a></p>
+  <%= form_for(:session, url: login_path) do |f|%>
+
+  <div class ="form-group">
+    <%= f.label "username: " %>
+    <%= f.text_field :username, class: "form-control" %>
+  </div>
+  <div class ="form-group">
+    <%= f.label "password: " %>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+  <%=f.submit "Log in", class: "btn btn-primary"%>
+  <%end%>
+  </div>
+</div>

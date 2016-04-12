@@ -56,5 +56,11 @@ Rails.application.routes.draw do
   root 'static_pages#index'
   get 'classes' => 'project_groups#index'
   resources :project_groups
-  resources :projects
+  delete 'classes' => 'project_groups#destroy'
+  resources :project_groups do
+   resources :projects, shallow: true
+  end
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
 end

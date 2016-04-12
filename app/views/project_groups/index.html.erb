@@ -4,6 +4,13 @@
     <h1><%= p.title %></h1>
     <p><%= p.description %> </p>
     <%= link_to "Show More", project_group_path(p), class: "btn btn-primary btn-small"%>
+    <% if current_user && current_user.admin? %>
+    <%= link_to 'edit', edit_project_group_path(p), class: "readbetter" %>
+    <%= link_to 'delete', project_group_path(p), method: 'delete', class: "readbetter"%>
+    <%end%>
   </div>
+  <%end%>
+  <% if current_user && current_user.admin? %>
+  <%= link_to '+add', new_project_group_path %>
   <%end%>
 </div>

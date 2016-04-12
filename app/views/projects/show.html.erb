@@ -1,8 +1,19 @@
 <div class ="container">
+  <div class ="col-md-8 col-md-offset-2">
   <div class ="page-header">
-    <h1><%=@project.name%></h1>
+    <h3>Project</h3>
   </div>
-  <p><strong>url:</strong> <code><%= @project.link %> </code></p>
-  <p><strong>description: </strong></p>
-  <p><%= @project.description%></p>
+    <div class ="well">
+      <p><strong>name:</strong> <%= @project.name %></p>
+        <p><strong>url:</strong> <code><%= @project.link %> </code></p>
+        <p><strong>created on:</strong> <%= @project.created_at.to_formatted_s(:long) %></p>
+        <p><strong>last updated:</strong> <%= @project.updated_at.to_formatted_s(:long) %>
+        <p><strong>description: </strong></p>
+        <p><%= @project.description%></p>
+    </div>
+    <%= link_to "Back to classes", '/classes', class: 'btn btn-primary pull-right' %>
+    <% if current_user && current_user.admin? %>
+    <p><%= link_to 'edit', edit_project_path(@project) %>&nbsp;&nbsp;&nbsp;<%= link_to 'delete', project_path(@project), method: 'delete' %></p>
+    <%end%>
+  </div>
 </div>

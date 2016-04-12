@@ -24,6 +24,13 @@
     </div>
     <!-- Collection of nav links and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse">
+      <% if current_user %>
+      <ul class ="nav navbar-nav">
+        <li><p class ="navbar-text">Signed in as: <%= current_user.username %> | <%= link_to "logout", logout_path, method: "delete", class: "navbar-link"%></li>
+      </ul>
+          <%end%>
+
+
       <ul class="nav navbar-nav navbar-right">
         <li <% if current_page?("/") %>class="active"<%end%>><%=  link_to "Home", root_path %></li>
         <li><a href="#">About This Site</a></li>
@@ -40,6 +47,7 @@
 
     </div>
   </nav>
+
   <%= yield %>
   <footer>
     <div class="container-fluid">

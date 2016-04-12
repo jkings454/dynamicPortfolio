@@ -20,11 +20,19 @@
         <%end%>
      <%end%>
         <td><small><%= link_to "show", project_path(p)%></small> </td>
+        <%if current_user && current_user.admin? %>
+        <td><small><%= link_to "edit", edit_project_path(p) %></small></td>
+        <td><small><%= link_to "delete", project_path(p), method: "delete"%> </small></td>
+        <%end%>
       </tr>
      <%end%>
     </tbody>
   </table>
+  <% if current_user && current_user.admin? %>
+
+  <%end%>
   <%else%>
   <p class="text-danger">There doesn't seem to be anything here.</p>
   <%end%>
+  <%= link_to "+add", new_project_group_project_path(@project_group) %>
 </div>
