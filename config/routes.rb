@@ -54,6 +54,8 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   root 'static_pages#index'
+  get 'about' => 'static_pages#about'
+  get 'resume' => 'static_pages#resume'
   get 'classes' => 'project_groups#index'
   resources :project_groups
   delete 'classes' => 'project_groups#destroy'
