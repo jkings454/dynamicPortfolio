@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
   end
   def update
     @project = Project.find(params[:id])
-    if @project.update(project_params)
+    if @project.update(update_project_params)
       redirect_to project_path(@project)
     else
       render 'edit'
@@ -34,5 +34,8 @@ class ProjectsController < ApplicationController
   private
   def project_params
     params.require(:project).permit(:name, :description, :link, :link_type).merge(:project_group_id => params[:project_group_id])
+  end
+  def update_project_params
+    params.require(:project).permit(:name, :description, :link, :link_type, :project_group_id )
   end
 end
