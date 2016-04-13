@@ -5,7 +5,8 @@
   </div>
     <div class ="well">
       <p><strong>name:</strong> <%= @project.name %></p>
-        <p><strong>url:</strong> <%= @project.link %> </p>
+      <p class="hidden-xs"><strong>url:</strong> <code> <%= @project.link %> </code></p>
+      <p class ="visible-xs"><strong>link: </strong><a href ="<%=@project.link%>"><%=@project.name%></a> </p>
         <p><strong>created on:</strong> <%= @project.created_at.to_formatted_s(:long) %></p>
         <p><strong>last updated:</strong> <%= @project.updated_at.to_formatted_s(:long) %>
         <p><strong>description: </strong></p>
