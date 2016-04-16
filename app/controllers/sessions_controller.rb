@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       redirect_to '/'
     else
       redirect_to '/login'
+      flash[:alert]="Please make sure you entered your username and password correctly and try again."
     end
   end
   def destroy

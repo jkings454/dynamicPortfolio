@@ -1,8 +1,17 @@
 <div class="container">
-  <div class ="page-header">
-    <h1>Content Management Login</h1>
-  </div>
+
   <div class ="col-md-6 col-md-offset-3">
+  <div class ="page-header">
+    <h1>Login</h1>
+  </div>
+    <%if flash[:alert]%>
+    <div class ="alert alert-danger alert-dismissable fade in" role="alert"> 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <%= flash[:alert] %>
+  </div>
+    <%end%>
   <p>This is the login page for the content manager(s). If you have any problems, email <a href ="mailto:josh.nichols.lives@gmail.com">josh.nichols.lives@gmail.com</a></p>
   <%= form_for(:session, url: login_path) do |f|%>
 

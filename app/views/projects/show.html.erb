@@ -12,7 +12,7 @@
         <p><strong>description: </strong></p>
         <p><%= @project.description%></p>
     </div>
-    <%= link_to "Back to classes", '/classes', class: 'btn btn-primary pull-right' %>
+    <%= link_to "Go Back", project_group_path(@project_group), class: 'btn btn-primary pull-right' %>
     <% if current_user && current_user.admin? %>
     <p><%= link_to 'edit', edit_project_path(@project) %>&nbsp;&nbsp;&nbsp;<%= link_to 'delete', project_path(@project), method: 'delete' %></p>
     <%end%>

@@ -36,6 +36,7 @@
         <li <% if current_page?("/") %>class="active"<%end%> ><%=  link_to "Home", root_path %></li>
           <li <% if current_page?("/about")%>class="active"<%end%> > <%= link_to "About", '/about' %> </li>
         <li <% if current_page?("/resume")%>class="active"<%end%> ><%= link_to "Resume", '/resume' %> </li>
+        <li <% if current_page?("/blog") %>class="active"<%end%>><%= link_to "Blog", '/blog' %> </li>
         <li <% if current_page?("/classes") %>class="active"<%end%>><%= link_to "Classes", '/classes', class: "navsplit-before"%> </li>
         <li <% if current_page?("/classes") %>class="active"<%end%>>
           <a href="#l" class="dropdown-toggle navsplit-after hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;<span class="caret"></span></a>

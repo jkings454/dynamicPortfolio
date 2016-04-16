@@ -30,6 +30,7 @@ class ProjectsController < ApplicationController
   end
   def show
     @project = Project.find(params[:id])
+    @project_group = ProjectGroup.find(@project.project_group_id)
   end
   private
   def project_params
