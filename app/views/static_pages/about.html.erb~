@@ -1,0 +1,96 @@
+<div class ="container">
+  <div class ="page-header">
+    <h1>About This Site</h1>
+  </div>
+ <div class ="row">
+  <div class="col-md-3">
+    <div class ="well">
+      <h4>Documentation</h4>
+      <ul>
+        <li> <a href ="http://ruby-doc.org/">ruby 2.2.3p173</a></li>
+        <li><a href="http://api.rubyonrails.org/">Rails 4.2.4</a></li>
+        <li><a href ="http://getbootstrap.com/">Bootstrap Documentation</a></li>
+        <li><a href="http://glyphicons.com/">Glyphicons</a></li>
+      </ul>
+      <h4>Source Code</h4>
+      <p><a href="https://github.com/jkings454/dynamicPortfolio.git">GitHub Repository</a></p>
+      
+    </div>
+  </div>
+
+  <div class="col-md-9">
+    <h3>One Extra Project...</h3>
+    <p>There's only one project you won't find on the "classes" page, this one! You'll find the technical details on the side.</p>
+    <p>I had originally created a static page for my portfolio, but found that it was really complicated to go in and edit the html for
+    every single project I'd created, so instead I spent a ton of time making this dynamic website. It still has a lot of kinks to work out,
+    but I'm really proud of the end result!</p>
+    <p>This site is still a work in progress, so expect a lot of changes. The next item on my list is finishing the resume page, hopefully that'll be done soon!</p>
+  </div>
+ </div>
+  <div class ="row">
+    <div class="page-header">
+      <h1>Bootstrap<small class ="hidden-xs"> and the problems it introduced</small></h1>
+    </div>
+    <div class ="col-md-4">
+      <img src="<%= asset_path('bootstrap.png') %>" class="img-responsive img-rounded"/>
+    </div>
+    <div class="col-md-8">
+      <h3>Bootstrap: a love story.</h3>
+      <p>Take a look at my first Rails app. I included Bootstrap, but had no idea how to use it properly. Eventually, I looked through
+      the bootstrap documentation, and fell in love. So much time and effort is saved by using bootstrap. I couldn't believe it.
+      Now it's hard to believe I ever wrote all that CSS for my previous website. However, there were some problems implementing it with
+      Rails</p>
+      <h3>Whoops</h3>
+      <p>For my Classes page, I wanted each class to be in a jumbotron with an image set in the background. Unfortunately, you can't
+        hard code in a style with bootstrap, so I hade to remove the .jpg extension from each of my <code>:image_url</code>s and create a 
+        class that would change the background of the jumbotron, named after the result of<code>@project_group.image_url.gsub(".jpg", "")</code>
+      This means that every time I want to add an image I have to add a CSS class for that image, which is definitely sub-optimal. Fixing that is definitely high
+      on my todo list.</p>
+    </div>
+  </div>
+
+    <p>Despite all of its problems, it's really nice to have a wonderful, mobile-first, framework to use. I think I'll be using bootstrap a 
+    lot more in the future, and look forward to unlocking it's full potential.</p>
+
+    <div class ="page-header">
+      <h1>Ruby <small>on rails</small><h1>
+    </div>
+    <div class ="row">
+    <div class ="col-md-9">
+      <h3>The zen of Ruby</h3>
+      <p>I chose Ruby on Rails for a number of reasons. One is that there are a number of (great) free online resources that
+      allowed to me learn Ruby on my own. Another is that something about the Ruby way appeals to me. The language isn't incredibly
+      syntax-oriented, it mostly reads like plain English. For example, </p>
+      <pre>
+        &lt;%=@projects.each do |p|%&gt;
+          &lt;h1&gt;&lt;%= p.name %&gt;&lt;/h1&gt;
+        &lt;%end%&gt;</pre>
+      <p>would list the titles of every project, and it's not too hard to infer that from the code, whereas with languages like
+        Java or C++ you'd have to write a <code>for</code> loop.</p>
+      <p>Everything you do in Rails makes sense. You have a controller which controls the actions associated with an object. You have
+      the Model which defines properties of the object. You have a view which a user can interact with. Using Rails has helped my understanding
+      of databases and server-side interactions greatly. I definitely know a lot more than I used to about web-development. The rails projects
+      I've done have also introduced me to Git and Github, and also got me to use the Command Line a lot more than I used to. </p>
+    </div>
+    <div class ="col-md-3">
+      <img src="<%= asset_path("rails.png") %>" class ="img-responsive"/>
+    </div>
+  </div>
+  <div class ="row">
+    <div class ="col-md-12"
+    <p>Rails has introduced me to a whole new world. I had a surprising amount of fun working on this project, and I definitely want to
+    do more of this in the future. Hopefully as time goes on and I gain more experience I can fix some of the issues I had with this site, and 
+    optimize the site in some areas. I'm also very curious about other web frameworks, and would like to try those out as well.</p>
+    <div class ="page-header">
+      <h1>So what now?</h1>
+    </div>
+    <p>Now, I move forward, like I always have. I'm thinking about adding a blog portion to this site, we'll see how that goes. I'm also going
+    to try and work on a few websites for friends and family, I'll link those in the Extracurricular group if I ever get around to it. Other than that,
+    work, school, play. The usual. </p>
+    <p>If you actually read through all that, I want to thank you. Thank you for taking the time to read through all of that pointless exposition. Thank
+      you for being interested in this site. It means a lot to me. Once again, If you have any questions whatsoever, email me at <a href="mailto:josh.nichols.lives@gmail.com">josh.nichols.lives@gmail.com</a></p>
+    <p> A million thanks, </p>
+    <h3>-Josh</h3>
+  </div>
+  </div>
+</div>

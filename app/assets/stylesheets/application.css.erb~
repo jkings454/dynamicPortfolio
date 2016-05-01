@@ -20,7 +20,7 @@ html {
 body {
   /* Margin bottom by footer height */
   padding-bottom: 165px;
-  font-family: 'Hind', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 footer {
   position: absolute;
@@ -53,14 +53,8 @@ footer {
     color: #f6f6f6;
     text-shadow: 2px 2px  2px#363636;
 }
-.coffee {
-	background: url('<%= asset_path("cup-of-coffee.jpg")%>') no-repeat center center;
-	min-height: 75%;
-	display: flex;
-	align-items: center;
-}
 .readbetter{
-    color: #d6f4f6
+    color: #24d7e8
 }
 .readbetter:hover {
     color: #d6f4f6
@@ -69,10 +63,5 @@ footer {
     max-height: 150px;
     overflow: hidden
 }
-#front-page a {
-	color: #000;
-}
-.shorter {
-	max-width: 70%; !important
-}
+
 

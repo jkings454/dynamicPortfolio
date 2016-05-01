@@ -6,6 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -26,16 +27,17 @@
     <!-- Collection of nav links and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse">
       <% if current_user %>
-      <ul class ="nav navbar-nav">
+      <ul class ="nav navbar-nav navbar-right ">
         <li><p class ="navbar-text">Signed in as: <%= current_user.username %> | <%= link_to "logout", logout_path, method: "delete", class: "navbar-link"%></li>
       </ul>
           <%end%>
 
 
-      <ul class="nav navbar-nav navbar-right">
-        <li <% if current_page?("/") %>class="active"<%end%>><%=  link_to "Home", root_path %></li>
-        <li><a href="#">About This Site</a></li>
-        <li><a href="#">Resume</a></li>
+      <ul class="nav navbar-nav">
+        <li <% if current_page?("/") %>class="active"<%end%> ><%=  link_to "Home", root_path %></li>
+          <li <% if current_page?("/about")%>class="active"<%end%> > <%= link_to "About", '/about' %> </li>
+        <li <% if current_page?("/resume")%>class="active"<%end%> ><%= link_to "Resume", '/resume' %> </li>
+        <li <% if current_page?("/blog") %>class="active"<%end%>><%= link_to "Blog", '/blog' %> </li>
         <li <% if current_page?("/classes") %>class="active"<%end%>><%= link_to "Classes", '/classes', class: "navsplit-before"%> </li>
         <li <% if current_page?("/classes") %>class="active"<%end%>>
           <a href="#l" class="dropdown-toggle navsplit-after hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;<span class="caret"></span></a>
@@ -64,9 +66,9 @@
           <h4 class="hidden-xs">Find me on social media!</h4>
         </div>
         <div class="row hidden-xs hidden-sm">
-          <a href="https://twitter.com/DaWall147"><%= image_tag  "twitter-dreamstale71.png" %></a>
-          <a href="https://soundcloud.com/jkings454"><%= image_tag "soundcloud-dreamstale63.png" %> </a>
-          <a href="https://github.com/jkings454"><%= image_tag "github2-dreamstale35.png" %> </a>
+          <a href="https://twitter.com/DaWall147"><%= image_tag  asset_path("twitter-dreamstale71.png") %></a>
+          <a href="https://soundcloud.com/jkings454"><%= image_tag asset_path("soundcloud-dreamstale63.png") %> </a>
+          <a href="https://github.com/jkings454"><%= image_tag asset_path("github2-dreamstale35.png") %> </a>
         </div>
       </div>
     </div>
