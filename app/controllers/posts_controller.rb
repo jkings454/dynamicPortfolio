@@ -6,7 +6,7 @@ class PostsController < ApplicationController
      @posts = Post.search(params[:search]).order("created_at DESC")
    else
      @posts = Post.all.order('created_at DESC')
-   end
+    end
   end
   def show
     @post = Post.find(params[:id])
