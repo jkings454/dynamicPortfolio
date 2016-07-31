@@ -1,16 +1,77 @@
-<div class = "container">
+<div class="container">
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <%n = 1%>
+      <%@project_groups[1...5].each do%>
+      <li data-target="#carousel-example-generic" data-slide-to="<%= n %>"></li>
+      <%n = n+1%>
+      <%end%>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <a href="<%=project_group_path(@project_groups[0])%>">
+          <img src="<%= asset_path(@project_groups[0].image_url)%>" class='image-limit'>
+          <div class="carousel-caption">
+            <h1><%=@project_groups[0].title%></h1>
+            <p><%=@project_groups[0].description%></h1>
+          </div>
+        </a>
+      </div>
+      <% @project_groups[1...5].each do |p| %>
+      <div class="item">
+        <a href="<%=project_group_path(p)%>">
+          <img src="<%= asset_path(p.image_url)%>">
+          <div class="carousel-caption">
+            <h1><%=p.title %></h1>
+            <p><%=p.description%></p>
+          </div>
+        </a>
+      </div>
+      <%end%>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <div class="page-header">
+    <h1>Project Groups</h1>
+  </div>
   <% @project_groups.each do |p| %>
-  <div class ="jumbotron <%= p.image_url.gsub(".jpg", "")%> "> 
-    <h1><%= p.title %></h1>
-    <p><%= p.description %> </p>
-    <%= link_to "Show More", project_group_path(p), class: "btn btn-primary btn-small"%>
-    <% if current_user && current_user.admin? %>
-    <%= link_to 'edit', edit_project_group_path(p), class: "readbetter" %>
-    <%= link_to 'delete', project_group_path(p), method: 'delete', class: "readbetter"%>
-    <%end%>
+  <div class="col-md-6">
+    <div class='panel panel-default group'>
+      <a href="<%=project_group_path(p)%>" class='group'>
+      <div class='panel-body'>
+        <h1><%=p.title%></h1>
+        <p><%=p.description%></p>
+      </div>
+      </a>
+      <%if current_user && current_user.admin?%>
+      <div class = 'panel-footer'>
+        <div class='pull-right'>
+          <a href='<%=edit_project_group_path(p)%>'><span class='glyphicon glyphicon-pencil'></span></a>
+          <%= link_to project_group_path(p), method: 'delete' do %><span class='glyphicon glyphicon-trash'><%end%>
+        </div>
+        <div class='clearfix'></div>
+      </div>
+      <%end%>
+    </div>
+
   </div>
   <%end%>
   <% if current_user && current_user.admin? %>
-  <%= link_to '+add', new_project_group_path %>
+  <div class="col-md-12">
+  <%=link_to "+new", new_project_group_path%>
+  </div>
   <%end%>
 </div>
