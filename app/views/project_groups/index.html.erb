@@ -1,4 +1,12 @@
 <div class="container">
+  <% if flash[:success] %>
+  <div class ="alert alert-success alert-dismissable fade in" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <%= flash[:success] %>
+  </div>
+  <%end%>
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">

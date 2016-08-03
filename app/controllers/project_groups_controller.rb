@@ -13,6 +13,7 @@ class ProjectGroupsController < ApplicationController
   def create
     @project_group = ProjectGroup.new(project_group_params)
     if @project_group.save
+      flash[:success] = 'Project Group Successfully Created'
       redirect_to '/classes'
     else
       render 'new'
@@ -21,6 +22,7 @@ class ProjectGroupsController < ApplicationController
   def destroy
     @project_group = ProjectGroup.find(params[:id])
     @project_group.destroy
+    flash[:success] = 'Project Group Successfully Destroyed'
     redirect_to '/classes'
   end
   def edit
@@ -29,6 +31,7 @@ class ProjectGroupsController < ApplicationController
   def update
     @project_group = ProjectGroup.find(params[:id])
     if @project_group.update(project_group_params)
+      flash[:success] = 'Project Group Successfully Updated'
       redirect_to '/classes'
     else
       render 'edit'

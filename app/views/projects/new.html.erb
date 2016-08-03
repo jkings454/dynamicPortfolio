@@ -14,13 +14,9 @@
       <%= f.text_area :description, class: "form-control" %>
     </div>
     <div class ="form-group">
-      <%= f.label "Type:" %>
-      <%= f.text_field :link_type, class: "form-control" %>
+      <%= f.select :link_type, ['link', 'download', 'document', 'code'], :prompt => '-type-', class: "form-control" %>
     </div>
-    <%= f.submit "Submit", class: "btn btn-primary" %>
-    </div>
- 
+    <%= f.submit "Add Project", class: "btn btn-primary"%>
   <%end%>
   </div>
 </div>
-

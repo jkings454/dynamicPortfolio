@@ -1,8 +1,19 @@
 <div class ="container">
-  <div class ="jumbotron <%= @project_group.image_url.gsub(".jpg", "")%> "> 
+
+  <% if flash[:success] %><!--1-->
+  <div class ="alert alert-success alert-dismissable fade in" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <%= flash[:success] %>
+  </div>
+  <%end%><!--1-->
+
+  <div class ="jumbotron <%= @project_group.image_url.gsub(".jpg", "")%> ">
     <h1><%= @project_group.title %></h1>
   </div>
-  <% unless @projects.blank? %>
+
+  <% unless @projects.blank? %><!--2-->
   <table class ="table table-hover">
     <thead>
       <tr>
@@ -10,31 +21,32 @@
       </tr>
     </thead>
     <tbody>
-      <% @projects.each do |p| %>
+      <% @projects.each do |p| %><!--3-->
       <tr>
-        <% if p.link_type == "download" %>
+        <% if p.link_type == "download" %><!--4-->
         <td><span class="glyphicon glyphicon-download-alt"></span>&nbsp;<a href ="<%=p.link%>"><%=p.name%></a></td>
-       <% else if p.link_type == "link" %>
+        <% elsif p.link_type == "link" %>
         <td><span class ="glyphicon glyphicon-link"></span>&nbsp;<a href ="<%=p.link%>"><%=p.name%></a></td>
+        <% elsif p.link_type == "document" %>
+        <td><span class ="glyphicon glyphicon-file"></span>&nbsp;<a href="<%=p.link%>"><%=p.name%></a></td>
+        <% elsif p.link_type == "code" %>
+        <td><span class ="glyphicon glyphicon-console"></span>&nbsp;<a href="<%=p.link%>"><%=p.name%></a></td>
         <%else%>
-        <%end%>
-     <%end%>
+        <td><a href="<%p.link%>"><%=p.name%></a></td>
         <td><small><%= link_to "show", project_path(p)%></small> </td>
-        <%if current_user && current_user.admin? %>
+        <%end%>
+        <%if current_user && current_user.admin? %><!--5-->
         <td><small><%= link_to "edit", edit_project_path(p) %></small></td>
         <td><small><%= link_to "delete", project_path(p), method: "delete"%> </small></td>
         <%end%>
       </tr>
-     <%end%>
+      <%end%>
     </tbody>
   </table>
-
-
-
   <%else%>
   <p class="text-danger">There doesn't seem to be anything here.</p>
   <%end%>
-  <% if current_user && current_user.admin? %>
+  <% if current_user && current_user.admin? %><!--6-->
   <%= link_to "+add", new_project_group_project_path(@project_group) %>
-    <%end%>
+  <%end%>
 </div>
