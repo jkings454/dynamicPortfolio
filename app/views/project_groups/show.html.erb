@@ -34,10 +34,10 @@
         <%else%>
         <td><a href="<%p.link%>"><%=p.name%></a></td>
         <%end%>
-        <td><small><%= link_to "show", project_path(p)%></small> </td>
+        <td><small><%= link_to "show details", project_path(p)%></small></td>
         <%if current_user && current_user.admin? %><!--5-->
         <td><small><%= link_to "edit", edit_project_path(p) %></small></td>
-        <td><small><%= link_to "delete", project_path(p), method: "delete"%> </small></td>
+        <td><small><%= link_to "delete", project_path(p), method: "delete"%></small></td>
         <%end%>
       </tr>
       <%end%>
