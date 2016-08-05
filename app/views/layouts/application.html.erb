@@ -13,6 +13,8 @@
   </head>
   <% if current_page?("/")%>
   <body class="coffee">
+  <% elsif current_page?("/classes") || current_page?("/project_groups")%>
+  <body class="boards">
   <%else%>
   <body>
   <%end%>
@@ -42,8 +44,8 @@
           <li <% if current_page?("/about")%>class="active"<%end%> > <%= link_to "About", '/about' %> </li>
         <!-- <li <% if current_page?("/resume")%>class="active"<%end%> ><%= link_to "Resume", '/resume' %> </li> -->
         <li <% if current_page?("/blog") %>class="active"<%end%>><%= link_to "Blog", '/blog' %> </li>
-        <li <% if current_page?("/classes") %>class="active"<%end%>><%= link_to "Classes", '/classes', class: "navsplit-before"%> </li>
-        <li <% if current_page?("/classes") %>class="active"<%end%>>
+        <li <% if current_page?("/classes") || current_page?("/project_groups")%>class="active"<%end%>><%= link_to "Classes", '/classes', class: "navsplit-before"%> </li>
+        <li <% if current_page?("/classes") || current_page?("/project_groups") %>class="active"<%end%>>
           <a href="#l" class="dropdown-toggle navsplit-after hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <% project_group_list.each do |p| %>
