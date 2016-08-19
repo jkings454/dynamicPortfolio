@@ -33,6 +33,8 @@ gem 'bcrypt'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# api gems
+gem 'active_model_serializers'
 #Use puma as the webserver
 gem 'puma'
 
