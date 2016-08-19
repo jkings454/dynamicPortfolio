@@ -73,7 +73,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :project_groups, only: [:index, :show]
-      resources :projects, only: [:index, :show]
+      resources :projects, only: [:show]
     end
   end
 end
