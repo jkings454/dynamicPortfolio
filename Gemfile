@@ -35,6 +35,8 @@ gem 'bcrypt'
 
 # api gems
 gem 'active_model_serializers'
+
+gem 'rack-cors', :require => 'rack/cors'
 #Use puma as the webserver
 gem 'puma'
 
