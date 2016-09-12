@@ -32,7 +32,7 @@
       <% @project_groups[1...5].each do |p| %>
       <div class="item">
         <a href="<%=project_group_path(p)%>">
-          <img src="<%= asset_path(p.image_url)%>">
+          <img src="<%= asset_path(p.image_url)%>" class = 'image-limit'>
           <div class="carousel-caption">
             <h1><%=p.title %></h1>
             <p><%=p.description%></p>
