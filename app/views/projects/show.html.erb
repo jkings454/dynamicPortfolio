@@ -1,4 +1,9 @@
 <div class ="container">
+  <ol class = "breadcrumb">
+    <li><%= link_to "Classes", project_groups_path %></li>
+    <li><%= link_to @project_group.title, project_group_path(@project_group)%></li>
+    <li class = "active"><%= @project.name %></li>
+  </ol>
   <div class ="col-md-8 col-md-offset-2">
   <div class ="page-header">
     <h3>Project</h3>
@@ -12,7 +17,6 @@
         <p><strong>description: </strong></p>
         <p><%= @project.description%></p>
     </div>
-    <%= link_to "Go Back", project_group_path(@project_group), class: 'btn btn-primary pull-right' %>
     <% if current_user && current_user.admin? %>
     <p><%= link_to 'edit', edit_project_path(@project) %>&nbsp;&nbsp;&nbsp;<%= link_to 'delete', project_path(@project), method: 'delete' %></p>
     <%end%>

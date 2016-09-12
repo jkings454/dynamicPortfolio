@@ -1,5 +1,8 @@
 <div class ="container">
-
+  <ol class = "breadcrumb">
+    <li><%= link_to "Classes", project_groups_path %></li>
+    <li class = "active"> <%= @project_group.title %></li>
+  </ol>
   <% if flash[:success] %><!--1-->
   <div class ="alert alert-success alert-dismissable fade in" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
