@@ -48,7 +48,7 @@ class PostsController < ApplicationController
     flash[:success] = "deletion successful"
     redirect_to '/blog'
   end
-  
+
   private
   def post_params
     params.require(:post).permit(:title, :content)

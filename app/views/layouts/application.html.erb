@@ -3,7 +3,8 @@
     <title>Josh Nichols Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+    integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
     <link href='https://fonts.googleapis.com/css?family=Hind' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -11,6 +12,7 @@
     <%= csrf_meta_tags %>
 
   </head>
+
   <% if current_page?("/")%>
   <body class="coffee">
   <% elsif current_page?("/classes") || current_page?("/project_groups")%>
@@ -18,6 +20,7 @@
   <%else%>
   <body>
   <%end%>
+
   <nav role="navigation" class="navbar navbar-default navbar-static-top navbar-inverse">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class = "container-fluid">
@@ -32,26 +35,44 @@
     </div>
     <!-- Collection of nav links and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse">
+
       <% if current_user %>
       <ul class ="nav navbar-nav navbar-right ">
-        <li><p class ="navbar-text">Signed in as: <%= current_user.username %> | <%= link_to "logout", logout_path, method: "delete", class: "navbar-link"%></li>
+        <li><p class ="navbar-text">Signed in as: <%= current_user.username %> | <%= link_to "logout",
+        logout_path, method: "delete", class: "navbar-link"%></li>
       </ul>
-          <%end%>
+      <%end%>
 
 
       <ul class="nav navbar-nav">
         <li <% if current_page?("/") %>class="active"<%end%> ><%=  link_to "Home", root_path %></li>
+
           <li <% if current_page?("/about")%>class="active"<%end%> > <%= link_to "About", '/about' %> </li>
-        <!-- <li <% if current_page?("/resume")%>class="active"<%end%> ><%= link_to "Resume", '/resume' %> </li> -->
+
         <li <% if current_page?("/blog") %>class="active"<%end%>><%= link_to "Blog", '/blog' %> </li>
-        <li <% if current_page?("/classes") || current_page?("/project_groups")%>class="active"<%end%>><%= link_to "Classes", '/classes', class: "navsplit-before"%> </li>
+        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+        aria-haspopup="true" aria-expanded="false" onclick="classesLookBetter">
+        More<span class="caret">
+          <ul class='dropdown-menu'>
+            <li <% if current_page?("/learning-outside-the-classroom") %>class="active"<%end%>>
+              <%= link_to "Learning Outside the Classroom", '/learning-outside-the-classroom' %> </li>
+            <li <% if current_page?("/resume")%>class="active"<%end%> ><%= link_to "Resume", '/resume' %> </li>
+            <li <% if current_page?("/my-goals") %>class="active"<%end%>><%= link_to "My Goals", '/my-goals' %> </li>
+          </ul>
+        </li>
+        <li <% if current_page?("/classes") || current_page?("/project_groups")%>class="active"<%end%>>
+          <%= link_to "Classes", '/classes', class: "navsplit-before"%> </li>
+
         <li <% if current_page?("/classes") || current_page?("/project_groups") %>class="active"<%end%>>
-          <a href="#l" class="dropdown-toggle navsplit-after hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle navsplit-after hidden-xs" data-toggle="dropdown" role="button"
+          aria-haspopup="true" aria-expanded="false" onclick="classesLookBetter">&nbsp;<span class="caret"></span></a>
+
           <ul class="dropdown-menu">
             <% project_group_list.each do |p| %>
             <li><%= link_to p.title, project_group_path(p) %></li>
             <%end%>
           </ul>
+        </li>
       </ul>
 
     </div>

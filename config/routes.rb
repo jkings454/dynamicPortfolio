@@ -56,6 +56,8 @@ Rails.application.routes.draw do
   root 'static_pages#index'
   get 'about' => 'static_pages#about'
   get 'resume' => 'static_pages#resume'
+  get 'my-goals' => 'static_pages#goals'
+  get 'learning-outside-the-classroom' => 'static_pages#learning_outside_classroom'
   get 'classes' => 'project_groups#index'
   resources :project_groups
   delete 'classes' => 'project_groups#destroy'
@@ -65,7 +67,9 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  resources :posts
+  scope '/blog' do
+    resources :posts
+  end
   get 'blog' => 'posts#index'
   resources :posts do
     resources :comments
